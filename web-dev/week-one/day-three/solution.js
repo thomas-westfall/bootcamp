@@ -1,28 +1,40 @@
 
-//1
+//Q1
 document.getElementById("container");
 
-//2
-document.querySelector("#container.container:first-child");
+//Q2
+document.querySelector("#container");
 
-//3
+//Q3
 document.getElementsByClassName("second");
 
-//4
-const thirdlist = document.getElementsByClassName("third");
-thirdlist[1];
+//Q4
+ const thirdlist = document.getElementsByClassName("third");
+ thirdlist[1];
 
-//5
-document.getElementById("container").innerHTML = "Hello!";
+//Q5
+document.getElementById("container").innerHTML += "Hello!";
 
-//6
+//Q6
 document.getElementsByClassName("footer")[0].classList.add('main');
 
-//7
-document.getElementsByClassName("footer")[0].class
+//Q7
+ document.getElementsByClassName("footer")[0].classList.remove('main');
 
+//Q8
+const li = document.createElement("li");
 
-// document.open();
+//Q9
+li.innerText = "four";
 
-// document.write("test");
-// document.close();
+//Q10
+document.querySelector("ul").appendChild(li);
+
+//Q12
+ var l = document.getElementsByTagName("ol")[0]; //get list for 1st ol tag
+ l = l.getElementsByTagName("li"); //get list for li tags within 1st ol tag
+ for (let i = 0; i < l.length; i++)
+   l[i].style.backgroundColor = "green"; //change each background to green
+
+//Q13
+document.removeChild(document.getElementsByClassName("footer")[0]);
