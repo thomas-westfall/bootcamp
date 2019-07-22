@@ -20,6 +20,31 @@ ContactCard.propTypes = {
   workphone: PropTypes.string
 }
 
+class Decrement extends Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {num: 10};
+  }
+  tick(){
+    this.setState({
+      num: this.props.num - 1
+    });
+    //this.props.num = this.props.num - 1;
+  }
+  render(){
+    return <div id="decrement">
+            <h2>{this.state.num}</h2>
+      <button onclick={this.tick}>Decrement</button>
+
+    </div>
+  }
+};
+
+Decrement.propTypes = {
+  num: PropTypes.number.isRequired
+}
+
 function App() {
   return (
     <div className="app">
@@ -34,6 +59,7 @@ function App() {
 
       <div className="decrement">
         <h1>Increment and Decrement</h1>
+        <Decrement />
       </div>
     </div>
 
