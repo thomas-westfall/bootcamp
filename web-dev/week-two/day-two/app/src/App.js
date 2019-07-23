@@ -16,8 +16,6 @@ class Form extends Component{
       lasttext: "Doe",
       buttons: <button onClick={this.edit}>Edit</button>
     };
-    this.handleFNameChange = this.handleFNameChange.bind(this);
-    this.handleLNameChange = this.handleLNameChange.bind(this);
   }
 
   edit = () => {
@@ -47,7 +45,7 @@ class Form extends Component{
   }
   render(){
     return <div>
-      <h2>Simple form</h2>
+      <h2>Form Edit</h2>
       <div id="firstname">
         {this.state.firsttext}
       </div>
@@ -57,7 +55,6 @@ class Form extends Component{
       </div>
 
       <div id="buttons">
-      {/* <button onClick={this.edit}>Edit</button> */}
       {this.state.buttons}
       </div>
 
@@ -67,7 +64,6 @@ class Form extends Component{
     this.setState({
       firstnametemp: event.target.value,
        firsttext: <input type ='text' value={event.target.value} onChange={this.handleFNameChange}/>
-      //firstname: event.target.value
     });
   }
 
@@ -82,15 +78,59 @@ class Form extends Component{
 
 Form.propTypes = {
   firstname: PropTypes.string.isRequired,
-  lastname: PropTypes.string.isRequired
+  firstnametemp: PropTypes.string.isRequired,
+  firstnametext: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  lastnametemp: PropTypes.string.isRequired,
+  lastnametext: PropTypes.string.isRequired,
+  buttons: PropTypes.string.isRequired
 }
 
+
+class Folder extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      temp:<ul>
+      <li>File1</li>
+      <li>File2</li>
+      <li>File3</li>
+      </ul> ,
+      tempb: "",
+      buttons: <button onClick={this.hide}>Hide</button>
+    };
+  }
+
+  hide = () => {
+    this.setState({
+      tempb: this.state.temp,
+      temp: <br></br>,
+      buttons: <button onClick={this.show}>Show</button>
+    })
+  }
+
+  show = () => {
+    this.setState({
+      temp:this.state.tempb,
+      tempb: <br></br>,
+      buttons: <button onClick={this.hide}>Hide</button>
+    })
+  }
+  render(){
+    return <div>
+      <h2>Folder Contents Toggle</h2>
+      Home
+        {this.state.temp}
+        {this.state.buttons}
+    </div>
+  }
+};
 function App() {
   return (
     <div className="app">
 
     <Form />
-
+    <Folder />
     </div>
 
 
