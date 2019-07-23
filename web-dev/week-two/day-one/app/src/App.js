@@ -24,18 +24,33 @@ class Decrement extends Component{
 
   constructor(props) {
     super(props);
-    this.state = {num: 10};
+    this.state = {
+      num: 0
+    };
   }
-  tick(){
+
+  decrement = () => {
+    if(this.state.num === 0){
+      window.confirm("Cannot be less than zero");
+    }
+    else{
     this.setState({
-      num: this.props.num - 1
+      num: this.state.num - 1
     });
-    //this.props.num = this.props.num - 1;
   }
+  }
+  
+  increment = () => {
+    this.setState({
+      num: this.state.num + 1
+    })
+  }
+
   render(){
-    return <div id="decrement">
-            <h2>{this.state.num}</h2>
-      <button onclick={this.tick}>Decrement</button>
+    return <div>
+      <div id='number'><h2>{this.state.num}</h2></div> 
+      <button onClick={this.increment}>Increment</button>
+      <button onClick={this.decrement}>Decrement</button>
 
     </div>
   }
