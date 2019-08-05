@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+//import view;
+import AppView from "./AppView";
 import { connect } from "react-redux";
 import { increment, decrement} from "./store/utilities/counter";
 
 class AppContainer extends Component {
   render() {
   return (
-    <AppView counter={this.props.counterr} incrementCounter=
+    <AppView counter={this.props.counter} incrementCounter=
     {this.props.incrementCounter} decrementCounter={this.props.decrementCounter}/>
   );
 }

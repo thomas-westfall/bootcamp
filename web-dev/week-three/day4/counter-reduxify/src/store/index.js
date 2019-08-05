@@ -34,7 +34,8 @@ import counter from "./utilities/counter";
 // store: first argument is your reducer(s) (keep in mind you can just have one reducer without the combineReducers involved****) and your second argument passed in is your middleware that operates in between actions being dispatched and those actions arriving at the reducer function;
 //****; with combineReducers, you are allowed to have split up reducer functions that manage a certain part of state, and this function combineReducers will go through each key in the combinedReducerObject and invoke each reducer function aka value until all reducer functions are called --- however, if you do not use combineReducers you can simply pass in a single reducer function --- so you can pass in an object of reducer functions with combineReducers, or oyu can pass in one sole reducer function without combineReducers;
 // export default store: you can only have one default export per file (unless you alias multiple defaults);
-const rootReducer = combineReducers(counter); //counter: counter
+//make sure you pass an object to combine reducers
+const rootReducer = combineReducers({counter}); //counter: counter
 const logger = createLogger({collapsed: true});
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));
 const store = createStore(rootReducer, middleware);
